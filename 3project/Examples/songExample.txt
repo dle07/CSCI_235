@@ -1,0 +1,51 @@
+#include "Song.cpp"
+#include "PlaylistItem.cpp"
+
+int main(){
+    Song s1("Miracle", 2.48, "Electro Pop", "Beachwood");
+    Song s2("Midnight Sky", 3.43, "Pop Rock", "Miley Cyrus");
+    Song s3("Diablo", 3.18, "Hip Hip", "Mac Miller");
+    Song s4("Kiss Me Thru the Phone", 3.13, "Hip Hop", "Soulja Boy");
+    Song s5("Let Me Love You", 4.16, "R&B", "Mario");
+    Song s6("Sweet Child O' Mine", 5.55, "Hard Rock", "Guns n Roses");
+
+    Song listOfSongs[] = {s1, s2, s3, s4, s5, s6};
+
+    for(Song _song_ : listOfSongs) {
+        _song_.display();
+    }
+}
+
+
+Expected Output:
+Miracle
+Artist: Beachwood
+Genre: Electro Pop
+Length: 2.48
+
+Midnight Sky
+Artist: Miley Cyrus
+Genre: Pop Rock
+Length: 3.43
+
+Diablo
+Artist: Mac Miller
+Genre: Hip Hip
+Length: 3.18
+
+Kiss Me Thru the Phone
+Artist: Soulja Boy
+Genre: Hip Hop
+Length: 3.13
+
+Let Me Love You
+Artist: Mario
+Genre: R&B
+Length: 4.16
+
+Sweet Child O' Mine
+Artist: Guns n Roses
+Genre: Hard Rock
+Length: 5.55
+
+: End of Output

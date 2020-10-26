@@ -1,0 +1,33 @@
+Podcast p1("Episode 121: A Spell for Chameleon", 53.35, "Literature", "Literary Disco", "Rider Strong", "Will Friedle");
+Podcast p2("MR. BEAST HATES YOUTUBE - IMPAULSIVE EP. 45", 55.15, "Comedy", "Impaulsive", "Logan Paul", "Mr. Beast");
+Podcast p3("Ep. 1 | John Stamos", 71.0, "Comedy", "CURIOUS", "Josh Peck", "John Stamos");
+
+Podcast listOfPodcasts[] = {p1, p2, p3};
+
+for(Podcast _podcast_ : listOfPodcasts) {
+    _podcast_.display();
+}
+
+Example Output:
+Episode 121: A Spell for Chameleon
+Podcast: Literary Disco
+Host: Rider Strong
+Guest: Will Friedle
+Genre: Literature
+Length: 53.35
+
+MR. BEAST HATES YOUTUBE - IMPAULSIVE EP. 45
+Podcast: Impaulsive
+Host: Logan Paul
+Guest: Mr. Beast
+Genre: Comedy
+Length: 55.15
+
+Ep. 1 | John Stamos
+Podcast: CURIOUS
+Host: Josh Peck
+Guest: John Stamos
+Genre: Comedy
+Length: 71
+
+: End of Output

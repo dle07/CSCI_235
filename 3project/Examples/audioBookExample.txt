@@ -1,0 +1,30 @@
+AudioBook a1("Playing It My Way", 849.0, "Biography", "Sachin Tendulkar", "Sartaj Garewal");
+AudioBook a2("Green Eggs and Ham", 849.0, "Poetry", "Dr. Seuss", "Jason Alexander");
+AudioBook a3("The Way of Kings", 849.0, "Fantasy", "Brandon Sanderson", "Kate Reading");
+
+AudioBook listOfBooks[] = {a1, a2, a3};
+
+for(AudioBook _book_ : listOfBooks) {
+    _book_.display();
+}
+
+Example Output:
+Playing It My Way
+Author: Sachin Tendulkar
+Narrator: Sartaj Garewal
+Genre: Biography
+Length: 849
+
+Green Eggs and Ham
+Author: Dr. Seuss
+Narrator: Jason Alexander
+Genre: Poetry
+Length: 849
+
+The Way of Kings
+Author: Brandon Sanderson
+Narrator: Kate Reading
+Genre: Fantasy
+Length: 849
+
+: End of Output

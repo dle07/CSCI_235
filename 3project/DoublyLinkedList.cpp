@@ -251,13 +251,13 @@ DoublyLinkedList<xType> DoublyLinkedList<xType> :: interleave(
         // Checks to see if either one of the lists given is empty or not, assigns the
         //head pointer of result to the first non null head we see
         if( first !=NULL){
-            DoubleNode<xType> * temp = new DoubleNode(this->head->getItem());
+            DoubleNode<xType>* temp = new DoubleNode<xType>(this->head->getItem());
             result.setHeadPtr(temp);
             curr = temp;
             first = this -> head ->getNext();
             
         }else if( second != NULL){
-            DoubleNode<xType> * temp = new DoubleNode(a_list ->getHeadPtr() -> getItem());
+            DoubleNode<xType> * temp = new DoubleNode<xType>(a_list ->getHeadPtr() -> getItem());
             result.setHeadPtr(temp);
             curr = temp;
             second = second->getNext();
@@ -266,7 +266,7 @@ DoublyLinkedList<xType> DoublyLinkedList<xType> :: interleave(
         //In order to be consistent with the swapping pattern we need to check to see if the paramater list has a node,
         //then add that node to our result, and assign prev to that node
         if( second != nullptr){
-            DoubleNode<xType> * temp = new DoubleNode(second->getItem());
+            DoubleNode<xType> * temp = new DoubleNode<xType>(second->getItem());
             curr->setNext(temp);
             temp->setPrevious(curr);
             curr = temp;
@@ -276,7 +276,7 @@ DoublyLinkedList<xType> DoublyLinkedList<xType> :: interleave(
         while(first || second){
             if(first)
             {
-                DoubleNode<xType>* temp = new DoubleNode(first->getItem());
+                DoubleNode<xType>* temp = new DoubleNode<xType>(first->getItem());
                 curr->setNext(temp);
                 temp->setPrevious(curr);
                 curr = temp;
@@ -284,7 +284,7 @@ DoublyLinkedList<xType> DoublyLinkedList<xType> :: interleave(
             }
             if(second)
             { 
-                DoubleNode<xType>* temp = new DoubleNode(second ->getItem());
+                DoubleNode<xType>* temp = new DoubleNode<xType>(second ->getItem());
                 curr->setNext(temp);
                 temp->setPrevious(curr);
                 curr = temp;

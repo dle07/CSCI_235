@@ -4,7 +4,7 @@
 
 #include"DoublyLinkedList.hpp"
 #include "PlaylistItem.hpp"
-#include "DoubleNode.hpp"
+
 
 
 template<typename xType>
@@ -12,7 +12,7 @@ class Playlist: public DoublyLinkedList<xType>{
 
     private:
     PlaylistItem* playList;
-
+    
     public:
     /*
     Default Constructor

@@ -13,9 +13,8 @@ DoubleNode <xType> ::DoubleNode(){
 
 
 
-
 template <typename xType> 
-DoubleNode <xType> :: DoubleNode(xType item){
+DoubleNode <xType> :: DoubleNode( xType item){
     this->item_ = item;
     prev=nullptr;
     next=nullptr;

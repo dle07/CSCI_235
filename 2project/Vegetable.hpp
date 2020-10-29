@@ -1,6 +1,5 @@
 /****************************************************************************************************************************
 Title        : Vegetable.hpp
-Auhors       : Nursima Donuk & Nigel Ferrer
 Description  : header/interface file of a Vegetable object class which inherits from the abstract Grocery class
 Dependencies : Grocery.hpp
 ****************************************************************************************************************************/

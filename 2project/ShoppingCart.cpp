@@ -1,6 +1,6 @@
 /****************************************************************************************************************************
 Title        : ShoppingCart.cpp
-Auhors       : Nursima Donuk & Nigel Ferrer
+
 Description  : implementation file of a ShoppingCart class which inherits from the ArrayBag class
 Dependencies : ArrayBag.hpp, Grocery.hpp, ShoppingCart.hpp, <iomanip>
 ****************************************************************************************************************************/

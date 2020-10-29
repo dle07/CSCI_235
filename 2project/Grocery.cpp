@@ -1,6 +1,6 @@
 /****************************************************************************************************************************
 Title        : Grocery.hpp
-Auhors       : Nursima Donuk & Nigel Ferrer
+
 Description  : partial implementation file of an abstract Grocery item class
 Dependencies : Grocery.hpp
 ****************************************************************************************************************************/

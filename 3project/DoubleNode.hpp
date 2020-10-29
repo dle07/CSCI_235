@@ -1,23 +1,28 @@
 #ifndef DOUBLE_NODE_
 #define DOUBLE_NODE_
 
+
 template<typename xType>
 class DoubleNode{
 
     private:
+
     xType item_;
-    DoubleNode <xType>* prev;
-    DoubleNode <xType>* next;
+    DoubleNode<xType>* next_;
+    DoubleNode<xType>* prev_;
     
     public:
-    DoubleNode();
-    DoubleNode(xType item);
-    void setItem(const xType &anItem);
-    void setPrevious(DoubleNode<xType> *previousNodePtr);
-    void setNext(DoubleNode<xType> *nextNodePtr);
-    xType getItem() const;
-    DoubleNode<xType> *getNext() const;
-    DoubleNode<xType> *getPrevious() const;
+DoubleNode();
+DoubleNode(xType item);
+    // Setter Functions
+void setItem(const xType &anItem);
+void setPrevious(DoubleNode<xType> *previousNodePtr);
+void setNext(DoubleNode<xType> *nextNodePtr);
+
+// Getter Functions
+xType getItem() const;
+DoubleNode<xType> *getNext() const;
+DoubleNode<xType> *getPrevious() const;
 
     
 

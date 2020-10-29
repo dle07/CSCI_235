@@ -1,155 +1,129 @@
 #include "Playlist.hpp"
 
+
 #include <unordered_set>
+#include <string>
+using std :: string;
+using std :: unordered_set;
+Playlist ::Playlist():DoublyLinkedList(){
+
+}
 
 
-template<typename xType>    //Calls default constructor of doubly Linked list
-Playlist<xType> :: Playlist(){
-    
-
-};
-
-
-template<typename xType>
-double Playlist<xType> :: getTotalTime() const{
-    double result{0};
-    DoubleNode<xType>* curr = this->head;
-    while( curr ){
-        result += curr->getItem().getLength();
+double Playlist :: getTotalTime() const{
+    double result = 0;
+    DoubleNode<PlaylistItem*>* curr = head_;
+    while(curr){
+        result += curr->getItem()->getLength();
+        curr = curr->getNext();
     }
     return result;
+
 }
 
-template<typename xType>
-void Playlist<xType> :: operator += (Playlist rhs){
-    this->itemCount += rhs.getSize();
-    if( rhs -> getHeadPtr() == NULL) return;
-    else if (this->tail == NULL)
-    {
-        this->itemCount = rhs.getSize();
-        DoubleNode<xType>* curr = new DoubleNode<xType>(rhs.getHeadPtr()->getItem());
-        DoubleNode<xType>* rhsNode = rhs.getHeadPtr()->getNext();
-        
-        this-> head = curr;
-        while(rhsNode){
-            DoubleNode<xType>* temp = new DoubleNode<xType>( rhsNode->getItem());
-            curr->getNext(temp);
-            temp->setPrevious(curr);
-            curr = temp;
-            rhsNode=rhsNode->getNext();
-        }
-        this->tail = curr;
-    
-        
-
-    }else{
-        this->itemCount += rhs.getSize();
-        DoubleNode<xType>* rhsNode = rhs.head;
-        DoubleNode<xType>* curr = this->tail;
-        while(rhsNode){
-            DoubleNode<xType>* temp = new DoubleNode<xType>(rhsNode->getItem());
+//Two cases, where calling list is empty, and second case, where its not empty;
+void Playlist :: operator +=(Playlist rhs){
+    this->size += rhs.size;
+    DoubleNode<PlaylistItem*>* rhsPtr = rhs.head_;
+    DoubleNode<PlaylistItem*>* curr = head_;
+    if( curr == nullptr){
+        DoubleNode<PlaylistItem*>* temp = new DoubleNode<PlaylistItem*>(rhsPtr->getItem());
+        head_=temp;
+        curr=temp;
+        rhsPtr = rhsPtr->getNext();
+        while(rhsPtr){
+            DoubleNode<PlaylistItem*>* temp = new DoubleNode<PlaylistItem*>(rhsPtr->getItem());
             curr->setNext(temp);
             temp->setPrevious(curr);
-            curr= temp;
+            curr = temp;
+            rhsPtr = rhsPtr->getNext();
+            
+        }
+    }
+    else    //Case 2) Calling list is not empty;
+    {
+        while(curr->getNext()){
+            curr = curr ->getNext();
+        }
+
+        while( rhsPtr ){
+            DoubleNode<PlaylistItem*>* temp = new DoubleNode<PlaylistItem*>(rhsPtr->getItem());
+            curr->setNext(temp);
+            temp->setPrevious(curr);
+            curr = temp;
+            rhsPtr = rhsPtr->getNext();
         }
     }
 }
 
-
-template<typename xType>
-void Playlist<xType> :: operator-=(Playlist rhs){
-    std :: unordered_set <std :: string > mySet();
-    DoubleNode<xType>* rhsNode = rhs.head;
-
-    while( rhsNode ){
-        mySet.insert(rhsNode->getItem());
-        rhsNode = rhsNode ->getNext();
+void Playlist :: operator -=(Playlist rhs){
+    /*
+    unordered_set<std::string> mySet;
+    DoubleNode<PlaylistItem*>* curr = rhs.head_;
+    while(curr){
+        mySet.insert(curr->getItem()->getTitle());
     }
+    curr = this->head_;
+    while(curr){
+        if( mySet.count(curr ->getItem()->getTitle())){
 
-    while(mySet.find(this->head->getItem())){
-        if(this->head->getNext() == NULL){
-            delete this->head;
-            this->head = NULL;
-            this->tail = NULL;
-        }else{
-            DoubleNode<xType>* temp = head ->getNext();
-            delete head;
-            head = temp;
-        }
-        this->itemCount --;
-    }
-
-    DoubleNode<xType>* curr = this->head;
-    while( curr ){
-        if( mySet.find(curr->getItem())){
-            if( curr == this-> tail){
-                curr->getPrevious()->setNext(NULL);
-                this->tail = curr->getPrevious();
+            if( curr==head_ && head_->getNext()==nullptr){
+                delete head_;
+                head_ = nullptr;
+            }else if( curr ==head_ && head_->getNext()){
+                DoubleNode<PlaylistItem*>* temp = head_;
+                head_->getNext()->setPrevious(nullptr);
+                head_ = head_->getNext();
+                delete temp;
+            }else if( curr->getNext()==nullptr){
+                curr->getPrevious()->setNext(nullptr);
                 delete curr;
-                curr = nullptr;
-
             }else{
-                DoubleNode<xType>* temp = curr->getNext();
                 curr->getPrevious()->setNext(curr->getNext());
-                curr->getNext()->setPrevious(curr->getPrevious());
+                curr->getNext()->setPrevious(curr->getNext());
                 delete curr;
-                curr = temp;
             }
-            itemCount++;
-            continue;
+            size--;
         }
-        curr = curr ->getNext();
+    } */
+    return ;
+
+}
+    
+
+void Playlist ::skip(){
+    if(head_->getNext() == nullptr || head_ == nullptr) return;
+    DoubleNode<PlaylistItem*>* temp = head_;
+    DoubleNode<PlaylistItem*>* curr =head_;
+    while(curr->getNext()){
+        curr= curr->getNext();
     }
+    head_ = head_->getNext();
+    head_->setPrevious(nullptr);
+
+    temp->setNext(nullptr);
+    curr->setNext(temp);
+    temp->setPrevious(temp);
     
 
 }
-
-template<typename xType>
-void Playlist<xType> :: skip(){
-    //If playlist has one 
-    if( head == NULL || head->getNext() == NULL)return;
-
-    //Temporarily stores address of head
-    DoubleNode<xType>* temp = head;
-    //Sets head to the 2nd node
-    this->head = this->head->getNext();
-
-    //Sets the second node previous link to null as it's now the head
-    temp->getNext()->setPrevious(nullptr);
-    //Destroys all link of the prior head
-    temp->setNext(nullptr);
-    temp->setPrevious(nullptr);
-    //Moves the head node to be the tail by setting the tail node's next to the temp
-    tail->setNext(temp);
-    //Finalizes the link by setting the temp's prev link to the tail
-    temp->setPrevious(this->tail);
-    //Sets tail to new tail
-    this->tail = temp;
-
-}
-
-
-template<typename xType>
-void Playlist<xType> :: rewind(){
-
-    //Nothing to do
-    if(this->head == NULL || this->head->getNext() == NULL)return;
-
-    DoubleNode<xType>* temp = tail;
-    this->tail = tail->getPrevious();
-
-    temp->setPrevious(nullptr);
-    temp->setNext(head);
-    head->setPrevious(temp);
-    this->head = temp;
-}
-
-
-template<typename xType>
-void Playlist<xType> :: display(){
-    DoubleNode<xType>* curr  = head;
-    while(curr){
-        curr->getItem().display();
+void Playlist :: rewind(){
+    if(head_->getNext() == nullptr || head_ == nullptr) return;
+    DoubleNode<PlaylistItem*>* curr =head_;
+    while( curr->getNext()){
         curr = curr->getNext();
+    }
+    curr->getPrevious()->setNext(nullptr);
+    curr->setPrevious(nullptr);
+    curr->setNext(head_);
+    head_->setPrevious(curr);
+    head_ = curr;
+}
+
+void Playlist ::display(){
+    DoubleNode<PlaylistItem*>* curr = head_;
+    while(curr){
+        curr->getItem()->display();
+        curr =curr->getNext();
     }
 }

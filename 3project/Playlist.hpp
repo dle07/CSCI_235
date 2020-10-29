@@ -2,22 +2,17 @@
 #define PLAYLIST_
 
 
-#include"DoublyLinkedList.hpp"
+#include "DoublyLinkedList.hpp"
 #include "PlaylistItem.hpp"
 
-
-
-template<typename xType>
-class Playlist: public DoublyLinkedList<xType>{
-
-    private:
-    PlaylistItem* playList;
-    
-    public:
+class Playlist: public DoublyLinkedList<PlaylistItem*>{
     /*
     Default Constructor
     Goal: Calls its parent constructor
 */
+
+public:
+
 Playlist();
 
 /*
@@ -54,15 +49,7 @@ void rewind();
     Goal: Calls the display function of each item in the Playlist
 */
 void display();
-
-
-
-
-
-
 };
-
-
 
 
 #endif

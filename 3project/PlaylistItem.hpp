@@ -1,5 +1,5 @@
-#ifndef PLAY_LIST_ITEM_
-#define PLAY_LIST_ITEM_
+#ifndef PLAYLIST_ITEM_
+#define PLAYLIST_ITEM_
 
 /*
 The purpose of an abstract class (often referred to as an ABC) is to provide an appropriate base class from which other classes can inherit. Abstract classes cannot be used to 
@@ -34,13 +34,6 @@ class PlaylistItem{
     virtual void display() const =0;
 
 };
-
-
-
-
-
-
-
 
 
 

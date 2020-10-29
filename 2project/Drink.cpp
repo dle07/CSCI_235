@@ -1,6 +1,6 @@
 /****************************************************************************************************************************
 Title        : Drink.hpp
-Auhors       : Nursima Donuk & Nigel Ferrer
+
 Description  : implementation file of a Drink object class which inherits from the abstract Grocery class
 Dependencies : Grocery.hpp, Drink.hpp
 ****************************************************************************************************************************/

@@ -1,6 +1,6 @@
 /****************************************************************************************************************************
 Title        : JunkFood.hpp
-Auhors       : Nursima Donuk & Nigel Ferrer
+
 Description  : implementation file of a JunkFood object class which inherits from the abstract Grocery class
 Dependencies : Grocery.hpp, JunkFood.hpp
 ****************************************************************************************************************************/

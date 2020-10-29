@@ -1,6 +1,5 @@
 /****************************************************************************************************************************
 Title        : ShoppingCart.hpp
-Auhors       : Nursima Donuk & Nigel Ferrer
 Description  : header/interface file of a ShoppingCart class which inherits from the ArrayBag class
 Dependencies : ArrayBag.hpp, Grocery.hpp
 ****************************************************************************************************************************/

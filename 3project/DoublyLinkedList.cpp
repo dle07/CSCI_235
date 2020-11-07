@@ -14,7 +14,7 @@ DoublyLinkedList<xType> ::DoublyLinkedList(){
 }
 
 
-
+//Copy Csontructor
 template <typename xType>
 DoublyLinkedList <xType> :: DoublyLinkedList(const DoublyLinkedList<xType> &target){
 
@@ -53,7 +53,7 @@ DoublyLinkedList<xType> ::~DoublyLinkedList(){
 template <typename xType>
 bool DoublyLinkedList<xType> :: insert(const xType &item, const int &position){
     DoubleNode<xType>* temp = new DoubleNode<xType>(item);
-    if( position <=0){
+    if( position <=0 || position > size + 1){
         return false;
     }else if(head_ == nullptr && position == 1){
         head_= temp;
